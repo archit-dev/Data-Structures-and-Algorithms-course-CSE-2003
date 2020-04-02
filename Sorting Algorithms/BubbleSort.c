@@ -6,10 +6,10 @@
 void bubbleSort(int arr[],int n,int ch);//Function to sort the array
 
 int main(){
-    int length,choice;
+    int length; //variable length stores the size of the array
     
     printf("Enter the numner of elements:\n");
-    scanf("%d",&length); //variable length stores the size of the array
+    scanf("%d",&length);
     
     int array[length]; // declaration of the array of input size
     
@@ -18,6 +18,8 @@ int main(){
         printf("Enter the element # i of the array:\n",i);
         scanf("%d",&array[i]);
     }
+    
+    int choice; //variable to store choice of user
     
     //Choice to sort the array in ascending or descending order
     printf("\nSelect your choice:\n");
@@ -45,7 +47,7 @@ int main(){
 
 /*Function for bubble sort. Takes 3 arguments: array to be sorted, the length 
 of the array and another integer representing the choice to sort the array
-in ascending or descending order
+in ascending order(if ch==1) or descending order(if ch==2).
 
 Average case time complexity : O(n^2).
 
