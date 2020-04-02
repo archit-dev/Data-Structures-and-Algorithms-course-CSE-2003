@@ -3,7 +3,7 @@
 #include <ctype.h>
 #include <string.h>
 
-int linearSearch(int array[],int length,int key);//Function for liner search
+int linearSearch(int array[],int length,int key);//Function for linear search
 
 int main(){
     int length; //variable length stores the size of the array
