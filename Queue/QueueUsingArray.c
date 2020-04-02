@@ -1,5 +1,4 @@
 //Array Implementation of Queue in C Language
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <conio.h>
