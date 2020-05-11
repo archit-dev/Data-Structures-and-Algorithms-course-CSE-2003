@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <conio.h>
-#define N 5 //Macro to set the size of the stack
+#define N 5 //Macro to set the size of the queue
 
 int front=-1,rear=-1; //Global variables denoting the front and the rear of the queue
 int queue[N];
