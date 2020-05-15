@@ -9,6 +9,7 @@ void swap(int*a, int*b);
 void heapify(int* heap,int size,int node);
 void buildHeap(int* heap,int size);
 void printHeap(int* heap,int size);
+void heapSort(int* heap,int size);
 
 int main(){
     printf("Please enter the number of elements that you want to add in the heap:\n");
@@ -25,7 +26,7 @@ int main(){
     heapSort(heap,size);
     printf("The elements after applying HeapSort are as follows: ");
     printHeap(heap,size);
-    
+    free(heap);
     return 0;
 }
 
