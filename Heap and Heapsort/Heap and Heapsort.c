@@ -1,3 +1,5 @@
+//Implementation of Heap and HeapSort in C Language
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -27,12 +29,14 @@ int main(){
     return 0;
 }
 
+//Function swaps the values of 2 integers it takes as arguments
 void swap(int*a, int*b){
     int temp=*a;
     *a=*b;
     *b=temp;
 }
 
+//Function to make sure that the parent element has a value greater than the value of its children
 void heapify(int* heap,int size,int node){
     int largest=node,leftChild=2*node+1,rightChild=2*node+2;
     if(leftChild<size && heap[leftChild]>heap[largest]){
@@ -47,6 +51,7 @@ void heapify(int* heap,int size,int node){
     }
 }
 
+//Starts from the last non leaf node and calls heapify function for every parent node
 void buildHeap(int* heap,int size){
     int startIndex=size/2-1,i;
     for(i=startIndex;i>=0;i--){
@@ -54,6 +59,7 @@ void buildHeap(int* heap,int size){
     }
 }
 
+//Function to sort the array
 void heapSort(int* heap,int size){
     int i;
     for(i=size-1;i>=0;i--){
