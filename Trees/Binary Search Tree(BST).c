@@ -15,6 +15,8 @@ struct Node{
 struct Node* getNewNode(int element);
 struct Node* insert(struct Node* root, int element);
 int search(struct Node* root,int element);
+struct Node* delete(struct Node* root, int element);
+struct Node* findMin(struct Node* root);
 
 //Driver function
 int main(){
@@ -33,6 +35,16 @@ int main(){
     else{
         printf("The element is not found in the BST\n");
     }
+   
+    root=delete(root,21);//Deletes 21 from the BST
+    
+    //Check if 21 is in the BST
+    if(search(root,21)){
+        printf("The element is found in the BST\n");
+    }
+    else{
+        printf("The element is not found in the BST\n");
+    }
     
     //Check if 100 is in the BST
     if(search(root,100)){
@@ -41,6 +53,7 @@ int main(){
     else{
         printf("The element is not found in the BST\n");
     }
+    
     return 0;
 }
 
@@ -67,6 +80,53 @@ struct Node* insert(struct Node* root, int element){
     return root;
 }
 
+//Function to find the node with the minimum data in BST
+struct Node* findMin(struct Node* root){
+    if(root==NULL){
+        return root;
+    }
+    struct Node* current=root;
+    while(current->leftChild!=NULL){
+        current=current->leftChild;
+    }
+    return current;
+}
+
+//Function to delete an element from BST
+struct Node* delete(struct Node* root, int element){
+    if (root==NULL){
+        return root;
+    }
+    else if(element<root->data){
+        delete(root->leftChild,element);
+    }
+    else  if(element>root->data){
+        delete(root->rightChild,element);
+    }
+    else{
+        if(root->leftChild==NULL && root->rightChild==NULL){
+            free(root);
+            root=NULL;
+        }
+        else if(root->leftChild!=NULL){
+            struct Node* temp=root;
+            root=root->rightChild;
+            free(temp);
+        }
+        else if(root->rightChild!=NULL){
+            struct Node* temp=root;
+            root=root->leftChild;
+            free(temp);
+        }
+        else{
+            struct Node* temp=findMin(root->rightChild);
+            root->data=temp->data;
+            delete(root->rightChild,temp->data);
+        }
+    }
+    return root;
+}
+
 //Function to search for an element in the BST
 int search(struct Node* root,int element){
     if(root==NULL){
@@ -82,3 +142,4 @@ int search(struct Node* root,int element){
         search(root->rightChild,element);
     }
 }
+
