@@ -10,7 +10,7 @@ void push(char a); //Function to push elements onto the stack
 char pop(); //Function to pop elements from the stack
 int priority(char a); //Function to set the priority of the operands
 char getTop(); //Function to get the topmost element of the stack
-void print(char arr[]); //Function to print any array passed as the parameter of this function
+void print(char arr[],int n); //Function to print any array passed as the parameter of this function upto length 'n'
 
 
 int main(){
@@ -59,7 +59,7 @@ int main(){
 	    }
 	}
 	printf("The postfix expression is : ");
-	print(postfix);
+	print(postfix,k);
 	return 0;
 }
 
@@ -91,9 +91,9 @@ char getTop(){
 	return stack1[top];
 }
 
-//Function to print any array passed as the parameter of this function
-void print(char arr[] ){
-	for(int i=0;arr[i]!='\0';i++){
+//Function to print any array passed as the parameter of this function upto length 'n'
+void print(char arr[],int n ){
+	for(int i=0;i<n;i++){
 		printf("%c",arr[i]);
 	}
 	printf("\n");
